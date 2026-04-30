@@ -120,9 +120,9 @@ const FamousDishes = () => {
                                     <p className='text-base font-bold leading-160 text-dark Inter mt-1.5'>₹ {item.price}</p>
                                     <button
                                         onClick={() => handleAddToCart(item)}
-                                        className={`w-full py-2 border-[1.5px] h-[42.1px] mt-3 border-[ultra rounded-lg text-[13px] font-medium transition-all duration-150 cursor-pointer ${inCart
-                                            ? 'bg-[ultra text-white'
-                                            : 'bg-transparent text-[ultra hover:bg-[ultra hover:text-white'
+                                        className={`w-full py-2 border-[1.5px] h-[42.1px] mt-3 border-ultra rounded-lg text-[13px] font-medium transition-all duration-150 cursor-pointer ${inCart
+                                            ? 'bg-ultra text-white'
+                                            : 'bg-transparent text-ultra hover:bg-ultra hover:text-white'
                                         }`}
                                     >
                                         {inCart ? '✓ Added' : 'Add to Cart'}
@@ -138,7 +138,7 @@ const FamousDishes = () => {
                         <Button
                             text={'Show More'}
                             variants='forth'
-                            className={'py-4 px-8 cursor-pointer duration-500 transform rounded-lg border border-transparent hover:border-[ultra hover:bg-none hover:bg-transparent hover:text-[ultra bg-[linear-gradient(85.95deg,#EC6112_1.54%,#FF902E_98.46%)] text-white'}
+                            className={'py-4 px-8 cursor-pointer duration-500 transform rounded-lg border border-transparent hover:border-ultra hover:bg-none hover:bg-transparent hover:text-ultra bg-[linear-gradient(85.95deg,#EC6112_1.54%,#FF902E_98.46%)] text-white'}
                             onClick={() => setVisibleCount(prev => prev + 4)}
                         />
                     </div>

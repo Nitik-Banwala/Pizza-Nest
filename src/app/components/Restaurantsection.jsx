@@ -33,11 +33,13 @@ const RestaurantSection = () => {
                 onSwiper={(swiper)=>(swiperRef.current = swiper)}
                 spaceBetween={20}
                 slidesPerView={1}
+
                 breakpoints={{
                     480: { slidesPerView: 2 },
                     768: { slidesPerView: 3 },
                     1024: { slidesPerView: 4 },
                 }}
+                className='pb-4!'
             >
                 {restaurants.map((r) => (
                     <SwiperSlide key={r.id}>

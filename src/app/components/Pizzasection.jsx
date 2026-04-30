@@ -8,8 +8,8 @@ import { pizzas } from '../utils/helper'
 import Button from './common/Button'
 
 const VegDot = ({ type }) => (
-    <span className={`inline-flex items-center justify-center w-4 h-4 border-2 rounded-sm ${type === 'veg' ? 'border-green-600' : 'border-red-600'}`}>
-        <span className={`w-2 h-2 rounded-full ${type === 'veg' ? 'bg-green-600' : 'bg-red-600'}`} />
+    <span className={`inline-flex items-center justify-center w-5 h-5 border rounded-[2.1px] ${type === 'veg' ? 'border-green-600' : 'border-red-600'}`}>
+        <span className={`w-3 h-3 rounded-full ${type === 'veg' ? 'bg-green-600' : 'bg-red-600'}`} />
     </span>
 )
 
@@ -38,9 +38,7 @@ const PizzaSection = () => {
                     className={`flex items-center Nunito-Sans gap-1.5 px-4 py-1.5 rounded border text-sm font-normal transition-colors
                         ${filter === 'all' ? 'border-gray-400 bg-gray-100' : 'border-gray-300 bg-white'}`}
                 >
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <line x1="4" y1="6" x2="20" y2="6" /><line x1="4" y1="12" x2="20" y2="12" /><line x1="4" y1="18" x2="20" y2="18" />
-                    </svg>
+                    <Icons icon={'filter'}/>
                     Filter
                 </button>
                 <button
@@ -88,6 +86,8 @@ const PizzaSection = () => {
                     1024: { slidesPerView: 4 },
                 }}
                 key={filter}
+                className='pb-4!'
+                
             >
                 {filtered.map((pizza) => (
                     <SwiperSlide key={pizza.id}>
