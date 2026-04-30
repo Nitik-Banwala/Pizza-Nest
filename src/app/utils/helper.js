@@ -53,42 +53,42 @@ export const restaurants = [
         name: 'Punjabi Tadka',
         cuisine: 'North Indian, Punjabi',
         rating: 4.0,
-        image: '/assets/images/png/Restaurantsone.png',
+        image: '/assets/images/png/restaurantsone.png',
     },
     {
         id: 2,
         name: 'Pizza Paradise',
         cuisine: 'Pizza, Fast Food',
         rating: 4.0,
-        image: '/assets/images/png/Restaurantstwo.png',
+        image: '/assets/images/png/restaurantstwo.png',
     },
     {
         id: 3,
         name: 'Desi Dhaba',
         cuisine: 'North Indian, Street Food',
         rating: 4.0,
-        image: '/assets/images/png/Restaurantsthree.png',
+        image: '/assets/images/png/restaurantsthree.png',
     },
     {
         id: 4,
         name: 'Sharma Sweets',
         cuisine: 'Sweets, North Indian',
         rating: 4.0,
-        image: '/assets/images/png/Restaurantsfour.png',
+        image: '/assets/images/png/restaurantsfour.png',
     },
     {
         id: 5,
         name: 'Royal Biryani',
         cuisine: 'Biryani, Mughlai',
         rating: 4.2,
-        image: '/assets/images/png/Restaurantsone.png',
+        image: '/assets/images/png/restaurantsone.png',
     },
     {
         id: 6,
         name: 'Spice Garden',
         cuisine: 'South Indian, Chinese',
         rating: 3.9,
-        image: '/assets/images/png/Restaurantstwo.png',
+        image: '/assets/images/png/restaurantstwo.png',
     },
 ]
 export const PIZZAS = [
@@ -98,7 +98,7 @@ export const PIZZAS = [
         price: 249,
         rating: 4.0,
         type: 'veg',
-        img: '/assets/images/png/Famousone.png'
+        img: '/assets/images/png/famousone.png'
     },
     {
         id: 2, name: 'Cheese Overload',
@@ -106,7 +106,7 @@ export const PIZZAS = [
         price: 299,
         rating: 4.5,
         type: 'veg',
-        img: '/assets/images/png/Famoustwo.png'
+        img: '/assets/images/png/famoustwo.png'
     },
     {
         id: 3, name: 'Veggie Fiesta',
@@ -114,7 +114,7 @@ export const PIZZAS = [
         price: 269,
         rating: 4.2,
         type: 'veg',
-        img: '/assets/images/png/Famousthree.png'
+        img: '/assets/images/png/famousthree.png'
     },
     {
         id: 4, name: 'Masala Paneer',
@@ -122,7 +122,7 @@ export const PIZZAS = [
         price: 299,
         rating: 4.4,
         type: 'veg',
-        img: '/assets/images/png/Famousfour.png'
+        img: '/assets/images/png/famousfour.png'
     },
     {
         id: 5, name: 'Farmhouse Magic',
@@ -130,7 +130,7 @@ export const PIZZAS = [
         price: 279,
         rating: 4.0,
         type: 'veg',
-        img: '/assets/images/png/Famousfive.png'
+        img: '/assets/images/png/famousfive.png'
     },
     {
         id: 6, name: 'Peppy Paneer',
@@ -138,7 +138,7 @@ export const PIZZAS = [
         price: 289,
         rating: 4.5,
         type: 'veg',
-        img: '/assets/images/png/Famoussix.png'
+        img: '/assets/images/png/famoussix.png'
     },
     {
         id: 7, name: 'Peri Peri Paneer',
@@ -146,7 +146,7 @@ export const PIZZAS = [
         price: 299,
         rating: 4.2,
         type: 'veg',
-        img: '/assets/images/png/Famousseven.png'
+        img: '/assets/images/png/famousseven.png'
     },
     {
         id: 8, name: 'Cheese n Corn',
@@ -154,7 +154,7 @@ export const PIZZAS = [
         price: 259,
         rating: 4.4,
         type: 'veg',
-        img: '/assets/images/png/Famouseight.png'
+        img: '/assets/images/png/famouseight.png'
     },
     {
         id: 9, name: 'Chicken BBQ',
@@ -162,7 +162,7 @@ export const PIZZAS = [
         price: 329,
         rating: 4.6,
         type: 'nonveg',
-        img: '/assets/images/png/Famousone.png'
+        img: '/assets/images/png/famousone.png'
     },
     {
         id: 10, name: 'Chicken Tikka',
@@ -170,7 +170,7 @@ export const PIZZAS = [
         price: 349,
         rating: 4.7,
         type: 'nonveg',
-        img: '/assets/images/png/Famoustwo.png'
+        img: '/assets/images/png/famoustwo.png'
     },
     {
         id: 11, name: 'Keema Do Pyaza',
@@ -178,7 +178,7 @@ export const PIZZAS = [
         price: 319,
         rating: 4.3,
         type: 'nonveg',
-        img: '/assets/images/png/Famousthree.png'
+        img: '/assets/images/png/famousthree.png'
     },
     {
         id: 12, name: 'Spicy Chicken Supreme'
@@ -186,7 +186,7 @@ export const PIZZAS = [
         price: 339,
         rating: 4.5,
         type: 'nonveg',
-        img: '/assets/images/png/Famousfour.png'
+        img: '/assets/images/png/famousfour.png'
     },
 ]
 

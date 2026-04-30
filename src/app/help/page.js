@@ -7,13 +7,13 @@ const Help = () => {
     <div className='bg-[#f2f2f7] min-h-screen py-32 px-4'>
       <div className='max-w-[800.1px] mx-auto bg-white rounded-xl shadow-sm p-6'>
 
-        <h1 className='text-custom-2xl font-bold text-[#111] mb-6'>
+        <h1 className='text-custom-2xl font-bold text-blc mb-6'>
           Help & Support
         </h1>
 
         {HELP_DATA.map((section, index) => (
           <div key={index} className='mb-6'>
-            <h2 className='text-[16px] font-semibold text-[#111] mb-2'>
+            <h2 className='text-[16px] font-semibold text-blc mb-2'>
               {section.title}
             </h2>
 

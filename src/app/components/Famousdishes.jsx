@@ -1,11 +1,10 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Button from './common/Button'
-import { PIZZAS } from '../utils/helper'
-import { TYPE_FILTERS } from '../utils/helper'
-import { SORT_FILTERS } from '../utils/helper'
+import { PIZZAS, TYPE_FILTERS, SORT_FILTERS } from '../utils/helper'
 import { useAuth } from './common/Authcontext'
+import { useRouter, useSearchParams } from 'next/navigation'
 
 const FamousDishes = () => {
     const [activeType, setActiveType] = useState('all')
@@ -13,6 +12,37 @@ const FamousDishes = () => {
     const [visibleCount, setVisibleCount] = useState(8)
 
     const { user, addToCart, cart, setShowLoginModal } = useAuth()
+
+    const router = useRouter()
+    const searchParams = useSearchParams()
+    useEffect(() => {
+        const type = searchParams.get('type') || 'all'
+        const sort = searchParams.get('sort') || ''
+
+        setActiveType(type)
+        setActiveSort(sort)
+    }, [searchParams])
+
+    const updateURL = (type, sort) => {
+        const params = new URLSearchParams()
+
+        if (type && type !== 'all') params.set('type', type)
+        if (sort) params.set('sort', sort)
+
+        router.push(`?${params.toString()}`, { scroll: false })
+    }
+
+    const handleTypeFilter = (value) => {
+        const newType = activeType === value ? 'all' : value
+        setActiveType(newType)
+        updateURL(newType, activeSort)
+    }
+
+    const handleSortFilter = (value) => {
+        const newSort = activeSort === value ? '' : value
+        setActiveSort(newSort)
+        updateURL(activeType, newSort)
+    }
 
     const getFiltered = () => {
         let items = [...PIZZAS]
@@ -22,16 +52,6 @@ const FamousDishes = () => {
         if (activeSort === 'lohi') items.sort((a, b) => a.price - b.price)
         if (activeSort === 'hilo') items.sort((a, b) => b.price - a.price)
         return items
-    }
-
-    const handleTypeFilter = (value) => {
-        setActiveType(value)
-        setVisibleCount(8)
-    }
-
-    const handleSortFilter = (value) => {
-        setActiveSort(prev => prev === value ? '' : value)
-        setVisibleCount(8)
     }
 
     const handleAddToCart = (item) => {
@@ -48,19 +68,19 @@ const FamousDishes = () => {
 
     const btnClass = (isActive) =>
         `h-10.5 max-w-42.5 w-full rounded-xl border text-[13px] font-medium transition-all duration-150 cursor-pointer ${isActive
-            ? 'bg-[#e8601a] text-white border-[#e8601a]'
-            : 'bg-white text-[#444] border-[#C1C1C1] hover:border-[#e8601a] hover:text-[#e8601a]'
+            ? 'bg-ultra text-white border-ultra'
+            : 'bg-white text-[#444] border-text-gray hover:border-ultra hover:text-ultra'
         }`
 
     return (
-        <div className='px-4 py-10 md:py-16 bg-[#f2f2f7]'>
+        <div className='px-4 py-10 md:py-25 bg-famous-bg'>
             <div className='max-w-[1140.1px] mx-auto'>
 
-                <h2 className='text-2xl md:text-[26px] font-bold text-[#111] mb-5 tracking-tight'>
+                <h2 className='sm:text-40 Nunito-Sans text-3xl font-semibold text-dark leading-120 mb-8 tracking-tight'>
                     Famous Dishes in Hisar
                 </h2>
 
-                <div className='flex flex-wrap items-center gap-3.5 mb-6'>
+                <div className='flex flex-wrap items-center gap-3.5 mb-10'>
                     {TYPE_FILTERS.map(f => (
                         <button key={f.value} onClick={() => handleTypeFilter(f.value)} className={btnClass(activeType === f.value)}>
                             {f.label}
@@ -80,7 +100,7 @@ const FamousDishes = () => {
 
                         return (
                             <div key={item.id} className='bg-white rounded-xl overflow-hidden shadow-sm hover:-translate-y-[3px] hover:shadow-md transition-all duration-200'>
-                                <div className='relative w-full h-[152px]'>
+                                <div className='relative w-full h-[192.1px]'>
                                     <Image
                                         src={item.img}
                                         alt={item.name}
@@ -89,20 +109,20 @@ const FamousDishes = () => {
                                         sizes='(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw'
                                     />
                                 </div>
-                                <div className='px-3 pt-[11px] pb-[13px]'>
-                                    <div className='flex items-start justify-between gap-1.5 mb-[2px]'>
-                                        <span className='text-[13.5px] font-semibold text-[#111] leading-tight'>{item.name}</span>
-                                        <span className='flex-shrink-0 bg-[#1a8a4a] text-white text-[10.5px] font-semibold px-[7px] py-[2px] rounded flex items-center gap-[2px]'>
+                                <div className='p-3 h-[159]'>
+                                    <div className='flex items-start justify-between gap-1.5 mb-[2.1px]'>
+                                        <span className='text-xl font-semibold text-blc line-clamp-1! Inter leading-140'>{item.name}</span>
+                                        <span className='shrink-0 bg-[#1a8a4a] text-white text-[10.5px] font-semibold px-[7.1px] py-[2.1px] rounded flex items-center gap-[2px]'>
                                             ★ {item.rating}
                                         </span>
                                     </div>
-                                    <p className='text-[11.5px] text-[#888] mb-1.5'>{item.rest}</p>
-                                    <p className='text-[14px] font-semibold text-[#111] mb-[10px]'>₹ {item.price}</p>
+                                    <p className='text-xs text-dark leading-160 mt-0.5 Inter '>{item.rest}</p>
+                                    <p className='text-base font-bold leading-160 text-dark Inter mt-1.5'>₹ {item.price}</p>
                                     <button
                                         onClick={() => handleAddToCart(item)}
-                                        className={`w-full py-2 border-[1.5px] border-[#e8601a] rounded-lg text-[13px] font-medium transition-all duration-150 cursor-pointer ${inCart
-                                            ? 'bg-[#e8601a] text-white'
-                                            : 'bg-transparent text-[#e8601a] hover:bg-[#e8601a] hover:text-white'
+                                        className={`w-full py-2 border-[1.5px] h-[42.1px] mt-3 border-[ultra rounded-lg text-[13px] font-medium transition-all duration-150 cursor-pointer ${inCart
+                                            ? 'bg-[ultra text-white'
+                                            : 'bg-transparent text-[ultra hover:bg-[ultra hover:text-white'
                                         }`}
                                     >
                                         {inCart ? '✓ Added' : 'Add to Cart'}
@@ -114,11 +134,11 @@ const FamousDishes = () => {
                 </div>
 
                 {hasMore && (
-                    <div className='flex justify-center mt-7'>
+                    <div className='flex justify-center mt-10'>
                         <Button
-                            text='Show More'
-                            variants='first'
-                            className='px-10 py-3 rounded-lg font-semibold text-sm'
+                            text={'Show More'}
+                            variants='forth'
+                            className={'py-4 px-8 cursor-pointer duration-500 transform rounded-lg border border-transparent hover:border-[ultra hover:bg-none hover:bg-transparent hover:text-[ultra bg-[linear-gradient(85.95deg,#EC6112_1.54%,#FF902E_98.46%)] text-white'}
                             onClick={() => setVisibleCount(prev => prev + 4)}
                         />
                     </div>

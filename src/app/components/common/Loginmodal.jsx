@@ -33,7 +33,7 @@ const LoginModal = () => {
                     ×
                 </button>
 
-                <h2 className='text-[26px] font-bold text-[#111] mb-6'>Log In</h2>
+                <h2 className='text-[26px] font-bold text-blc mb-6'>Log In</h2>
 
                 <input
                     type='email'
@@ -41,7 +41,7 @@ const LoginModal = () => {
                     value={email}
                     onChange={e => { setEmail(e.target.value); setError('') }}
                     onKeyDown={handleKeyDown}
-                    className='w-full px-4 py-3 border-[1.5px] border-[#e0e0e0] rounded-xl text-[14px] text-[#111] outline-none mb-3 focus:border-[#e8601a] placeholder:text-[#bbb] transition-colors'
+                    className='w-full px-4 py-3 border-[1.5px] border-whitey rounded-xl text-[14px] text-blc outline-none mb-3 focus:border-ultra placeholder:text-placeholder transition-colors'
                 />
 
                 <input
@@ -50,21 +50,21 @@ const LoginModal = () => {
                     value={password}
                     onChange={e => { setPassword(e.target.value); setError('') }}
                     onKeyDown={handleKeyDown}
-                    className='w-full px-4 py-3 border-[1.5px] border-[#e0e0e0] rounded-xl text-[14px] text-[#111] outline-none mb-1.5 focus:border-[#e8601a] placeholder:text-[#bbb] transition-colors'
+                    className='w-full px-4 py-3 border-[1.5px] border-whitey rounded-xl text-[14px] text-blc outline-none mb-1.5 focus:border-ultra placeholder:text-placeholder transition-colors'
                 />
 
                 {error && <p className='text-[12px] text-red-500 mb-2'>{error}</p>}
 
                 <button
                     onClick={handleLogin}
-                    className='w-full py-3.5 bg-gradient-to-r from-[#f07b2a] to-[#e8601a] text-white rounded-xl text-[15px] font-semibold cursor-pointer mt-2 mb-4 hover:opacity-90 transition-opacity border-none'
+                    className='w-full py-3.5 bg-gradient-to-r from-[#f07b2a] to-ultra text-white rounded-xl text-[15px] font-semibold cursor-pointer mt-2 mb-4 hover:opacity-90 transition-opacity border-none'
                 >
                     Login
                 </button>
 
                 <p className='text-[13px] text-[#aaa] text-center'>
                     New to Pizza Nest ?{' '}
-                    <span className='text-[#e8601a] font-semibold cursor-pointer'>Create an Account</span>
+                    <span className='text-ultra font-semibold cursor-pointer'>Create an Account</span>
                 </p>
             </div>
         </div>

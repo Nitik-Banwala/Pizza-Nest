@@ -25,17 +25,17 @@ const Navbar = () => {
             <div className='fixed w-full h-25 shadow-lg bg-white z-50'>
                 <div className='px-4 max-w-293 mx-auto gap-11.5 flex w-full flex-row'>
                     <div className='flex flex-row w-full max-w-[429.1px] justify-between'>
-                        <div className='max-w-[161.1px] w-full mt-6'>
+                        <div className=' mt-6'>
                             <a href='/home'
                                 onClick={() => router.push('/home')}
-                                className='text-[#EC6112] text-custom-3xl'>Pizza Nest</a>
+                                className='text-prime-1 Nunito-Sans text-custom-3xl'>Pizza Nest</a>
                         </div>
                         <div className='hidden lg:flex w-full mt-8 items-center gap-1 flex-row border-r border-gray max-w-[205.1px]'>
                             <div>
                                 <Icons icon={"location"} />
                             </div>
                             <div>
-                                <p className='text-xs font-normal leading-160'>Location</p>
+                                <p className='text-xs font-normal Roboto leading-160'>Location</p>
                                 <a href="" className='text-base font-normal leading-160'>Hisar, Haryana 125001</a>
                             </div>
                         </div>
@@ -67,7 +67,7 @@ const Navbar = () => {
                                     {user ? (
                                         <button
                                             onClick={logout}
-                                            className='text-sm text-[#EC6112] font-medium cursor-pointer bg-transparent border-none leading-160'
+                                            className='text-sm text-prime-1 font-medium cursor-pointer bg-transparent border-none leading-160'
                                             title={`Logged in as ${user.email}`}
                                         >
                                             {user.name}
@@ -90,7 +90,7 @@ const Navbar = () => {
                             >
                                 <Icons icon={"cart"} />
                                 {totalItems > 0 && (
-                                    <span className='absolute -top-2 -right-2 min-w-[18.1px] h-[18.1px] bg-[#EC6112] text-white text-[10px] font-bold rounded-full flex items-center justify-center px-1'>
+                                    <span className='absolute -top-2 -right-2 min-w-[18.1px] h-[18.1px] bg-prime-1 text-white text-[10px] font-bold rounded-full flex items-center justify-center px-1'>
                                         {totalItems > 99 ? '99+' : totalItems}
                                     </span>
                                 )}
@@ -121,7 +121,7 @@ const Navbar = () => {
                     ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}
             >
                 <div className="flex items-center justify-between px-5 py-5 border-b border-gray-100">
-                    <a className="text-[#EC6112] text-xl font-bold"
+                    <a className="text-prime-1 text-xl font-bold"
                         href='/home'
                         onClick={() => router.push('/home')}
                     >Pizza Nest</a>
@@ -152,7 +152,7 @@ const Navbar = () => {
                         />
                     </div>
 
-                    <a href="" className="flex items-center gap-1 text-gray-700 hover:text-[#EC6112] transition-colors">
+                    <a href="" className="flex items-center gap-1 text-gray-700 hover:text-prime-1 transition-colors">
                         <Icons icon={"question"} />
                         <span className="text-sm">Help</span>
                     </a>
@@ -161,7 +161,7 @@ const Navbar = () => {
                     {user ? (
                         <button
                             onClick={() => { logout(); setMenuOpen(false) }}
-                            className="flex items-center gap-1 text-[#EC6112] bg-transparent border-none cursor-pointer"
+                            className="flex items-center gap-1 text-prime-1 bg-transparent border-none cursor-pointer"
                         >
                             <Icons icon={"person"} />
                             <span className="text-sm font-medium">Logout ({user.name})</span>
@@ -169,7 +169,7 @@ const Navbar = () => {
                     ) : (
                         <button
                             onClick={handleLoginClick}
-                            className="flex items-center gap-1 text-gray-700 hover:text-[#EC6112] transition-colors bg-transparent border-none cursor-pointer"
+                            className="flex items-center gap-1 text-gray-700 hover:text-prime-1 transition-colors bg-transparent border-none cursor-pointer"
                         >
                             <Icons icon={"person"} />
                             <span className="text-sm">Login</span>
@@ -177,11 +177,11 @@ const Navbar = () => {
                     )}
 
                     {/* CART WITH BADGE in drawer */}
-                    <div className="flex items-center gap-1 cursor-pointer text-gray-700 hover:text-[#EC6112] transition-colors relative">
+                    <div className="flex items-center gap-1 cursor-pointer text-gray-700 hover:text-prime-1 transition-colors relative">
                         <div className="relative">
                             <Icons icon={"cart"} />
                             {totalItems > 0 && (
-                                <span className='absolute -top-2 -right-2 min-w-[18px] h-[18px] bg-[#EC6112] text-white text-[10px] font-bold rounded-full flex items-center justify-center px-1'>
+                                <span className='absolute -top-2 -right-2 min-w-[18px] h-[18px] bg-prime-1 text-white text-[10px] font-bold rounded-full flex items-center justify-center px-1'>
                                     {totalItems > 99 ? '99+' : totalItems}
                                 </span>
                             )}

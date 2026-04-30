@@ -1,5 +1,5 @@
 "use client"
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState ,useEffect} from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import 'swiper/css'
@@ -19,13 +19,23 @@ const PizzaSection = () => {
 
     const filtered = pizzas.filter(p => filter === 'all' || p.type === filter)
 
-    return (
-        <div className='w-full px-4 py-8 max-w-293 mx-auto pt-25'>
+    useEffect(() => {
+        const savedFilter = localStorage.getItem('filter')
+        if (savedFilter) {
+            setFilter(savedFilter)
+        }
+    }, [])
+    useEffect(() => {
+        localStorage.setItem('filter', filter)
+    }, [filter])
 
-            <div className='flex flex-row gap-3 mb-6'>
+    return (
+        <div className='w-full px-4 py-25 max-w-293 mx-auto '>
+
+            <div className='flex flex-row gap-3 '>
                 <button
                     onClick={() => setFilter('all')}
-                    className={`flex items-center gap-1.5 px-4 py-1.5 rounded border text-sm font-normal transition-colors
+                    className={`flex items-center Nunito-Sans gap-1.5 px-4 py-1.5 rounded border text-sm font-normal transition-colors
                         ${filter === 'all' ? 'border-gray-400 bg-gray-100' : 'border-gray-300 bg-white'}`}
                 >
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -35,7 +45,7 @@ const PizzaSection = () => {
                 </button>
                 <button
                     onClick={() => setFilter(filter === 'veg' ? 'all' : 'veg')}
-                    className={`flex items-center gap-1.5 px-4 py-1.5 rounded border text-sm font-normal transition-colors
+                    className={`flex Nunito-Sans items-center gap-1.5 px-4 py-1.5 rounded border text-sm font-normal transition-colors
                         ${filter === 'veg' ? 'border-green-500 bg-green-50' : 'border-gray-300 bg-white'}`}
                 >
                     <VegDot type="veg" />
@@ -43,7 +53,7 @@ const PizzaSection = () => {
                 </button>
                 <button
                     onClick={() => setFilter(filter === 'nonveg' ? 'all' : 'nonveg')}
-                    className={`flex items-center gap-1.5 px-4 py-1.5 rounded border text-sm font-normal transition-colors
+                    className={`flex Nunito-Sans items-center gap-1.5 px-4 py-1.5 rounded border text-sm font-normal transition-colors
                         ${filter === 'nonveg' ? 'border-red-500 bg-red-50' : 'border-gray-300 bg-white'}`}
                 >
                     <VegDot type="nonveg" />
@@ -51,16 +61,16 @@ const PizzaSection = () => {
                 </button>
             </div>
 
-  
-            <div className='flex items-center justify-between mb-6'>
-                <h2 className='text-2xl font-semibold text-gray-900'>What pizza would you like to eat?</h2>
+
+            <div className='flex items-center justify-between my-10'>
+                <h2 className='sm:text-40 text-3xl font-semibold text-dark leading-120 Nunito-Sans '>What pizza would you like to eat?</h2>
                 <div className='flex gap-2'>
                     <Button onClick={() => swiperRef.current?.slidePrev()} variants='third'
                         text={<Icons icon={'prev'} />}
                         className={'group'} />
                     <Button
                         onClick={() => swiperRef.current?.slideNext()}
-                         variants='third'
+                        variants='third'
                         text={<Icons icon={'next'} />}
                         className={'group'} />
                 </div>
@@ -68,8 +78,8 @@ const PizzaSection = () => {
 
             <Swiper
                 modules={[Navigation]}
-               
-                onSwiper={(swiper)=>(swiperRef.current = swiper)}
+
+                onSwiper={(swiper) => (swiperRef.current = swiper)}
                 spaceBetween={20}
                 slidesPerView={1}
                 breakpoints={{
@@ -88,7 +98,7 @@ const PizzaSection = () => {
                                 className='w-full h-[213.1px] object-cover'
                             />
                             <div className='py-3 text-center'>
-                                <p className='text-base font-normal text-gray-800'>{pizza.name}</p>
+                                <p className='text-base font-normal Roboto text-gray-800'>{pizza.name}</p>
                             </div>
                         </div>
                     </SwiperSlide>
