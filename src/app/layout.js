@@ -4,6 +4,7 @@ import Navbar from "./components/common/Navbar";
 import Footer from "./components/common/Footer";
 import { AuthProvider } from "./components/common/Authcontext";
 import LoginModal from "./components/common/Loginmodal";
+import { Suspense } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,7 +35,9 @@ export default function RootLayout({ children }) {
         <AuthProvider>
           <Navbar />
           <LoginModal />   
+          <Suspense>
           {children}
+          </Suspense>
           <Footer />
         </AuthProvider>
       </body>
