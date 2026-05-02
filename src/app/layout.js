@@ -4,10 +4,14 @@ import Navbar from "./components/common/Navbar";
 import Footer from "./components/common/Footer";
 import { AuthProvider } from "./components/common/Authcontext";
 import LoginModal from "./components/common/Loginmodal";
-import { Suspense } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
   subsets: ["latin"],
 });
 
@@ -20,10 +24,6 @@ export const metadata = {
     images: ["/meta.png"],
   },
 };
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export default function RootLayout({ children }) {
   return (
@@ -34,10 +34,8 @@ export default function RootLayout({ children }) {
       <body>
         <AuthProvider>
           <Navbar />
-          <LoginModal />   
-          <Suspense>
+          <LoginModal />
           {children}
-          </Suspense>
           <Footer />
         </AuthProvider>
       </body>

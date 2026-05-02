@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import Icons from './Icons'
 import { useAuth } from './Authcontext'
 import { useRouter } from 'next/navigation'
+import { LogOut } from 'lucide-react'
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false)
@@ -61,16 +62,15 @@ const Navbar = () => {
 
                                     >Help</a>
                                 </div>
-
                                 <div className='flex flex-row items-center gap-0.5 max-w-20 w-full'>
                                     <Icons icon={"person"} />
                                     {user ? (
                                         <button
                                             onClick={logout}
-                                            className='text-sm text-prime-1 font-medium cursor-pointer bg-transparent border-none leading-160'
+                                            className='text-sm text-prime-1 font-medium  cursor-pointer bg-transparent border-none leading-160'
                                             title={`Logged in as ${user.email}`}
                                         >
-                                            {user.name}
+                                            {"Logout"} 
                                         </button>
                                     ) : (
                                         <button
@@ -82,8 +82,6 @@ const Navbar = () => {
                                     )}
                                 </div>
                             </div>
-
-
                             <div
                                 className='cursor-pointer relative'
                                 onClick={() => router.push('/cart')}
@@ -97,8 +95,6 @@ const Navbar = () => {
                             </div>
                         </div>
                     </div>
-
-
                     <button
                         className="md:hidden mt-6.5 mr-3 flex flex-col cursor-pointer justify-center items-center w-10 h-10 gap-1.5 focus:outline-none"
                         onClick={() => setMenuOpen(prev => !prev)}
@@ -110,7 +106,6 @@ const Navbar = () => {
                     </button>
                 </div>
             </div>
-
             <div
                 className={`fixed inset-0 z-40 bg-black/30 transition-opacity duration-300 md:hidden
                     ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
@@ -133,7 +128,6 @@ const Navbar = () => {
                         <Icons icon={"close"} />
                     </button>
                 </div>
-
                 <div className="flex flex-col gap-6 px-5 py-6">
                     <div className="flex items-center gap-2 border-b pb-3 border-gray-100">
                         <Icons icon={"location"} />
@@ -142,7 +136,6 @@ const Navbar = () => {
                             <a href="" className="text-sm font-normal">Hisar, Haryana 125001</a>
                         </div>
                     </div>
-
                     <div className="flex flex-row border gap-2 items-center rounded-lg p-3 w-full border-gray">
                         <Icons  icon={"search"} />
                         <input
@@ -151,13 +144,10 @@ const Navbar = () => {
                             className="w-full text-sm outline-none placeholder:text-gray-400"
                         />
                     </div>
-
                     <a href="" className="flex items-center gap-1 text-gray-700 hover:text-prime-1 transition-colors">
                         <Icons icon={"question"} />
                         <span className="text-sm">Help</span>
                     </a>
-
-                    {/* LOGIN / LOGOUT in drawer */}
                     {user ? (
                         <button
                             onClick={() => { logout(); setMenuOpen(false) }}
@@ -175,8 +165,6 @@ const Navbar = () => {
                             <span className="text-sm">Login</span>
                         </button>
                     )}
-
-                    {/* CART WITH BADGE in drawer */}
                     <div className="flex items-center gap-1 cursor-pointer text-gray-700 hover:text-prime-1 transition-colors relative">
                         <div className="relative">
                             <Icons icon={"cart"} />

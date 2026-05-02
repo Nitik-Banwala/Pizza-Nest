@@ -1,10 +1,10 @@
 "use client"
-import React, { useRef, useState ,useEffect} from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import 'swiper/css'
 import Icons from './common/Icons'
-import { pizzas } from '../utils/helper'
+import { PIZZA } from '../utils/helper'
 import Button from './common/Button'
 
 const VegDot = ({ type }) => (
@@ -17,7 +17,7 @@ const PizzaSection = () => {
     const swiperRef = useRef(null)
     const [filter, setFilter] = useState('all')
 
-    const filtered = pizzas.filter(p => filter === 'all' || p.type === filter)
+    const filtered = PIZZA.filter(p => filter === 'all' || p.type === filter)
 
     useEffect(() => {
         const savedFilter = localStorage.getItem('filter')
@@ -30,20 +30,20 @@ const PizzaSection = () => {
     }, [filter])
 
     return (
-        <div className='w-full px-4 py-25 max-w-293 mx-auto '>
+        <div className='w-full px-4 py-10 sm:py-25 max-w-293 mx-auto '>
 
             <div className='flex flex-row gap-3 '>
                 <button
                     onClick={() => setFilter('all')}
-                    className={`flex items-center Nunito-Sans gap-1.5 px-4 py-1.5 rounded border text-sm font-normal transition-colors
+                    className={`flex items-center cursor-pointer Nunito-Sans gap-1.5 px-4 py-1.5 rounded border text-sm font-normal transition-colors
                         ${filter === 'all' ? 'border-gray-400 bg-gray-100' : 'border-gray-300 bg-white'}`}
                 >
-                    <Icons icon={'filter'}/>
+                    <Icons icon={'filter'} />
                     Filter
                 </button>
                 <button
                     onClick={() => setFilter(filter === 'veg' ? 'all' : 'veg')}
-                    className={`flex Nunito-Sans items-center gap-1.5 px-4 py-1.5 rounded border text-sm font-normal transition-colors
+                    className={`flex Nunito-Sans cursor-pointer items-center gap-1.5 px-4 py-1.5 rounded border text-sm font-normal transition-colors
                         ${filter === 'veg' ? 'border-green-500 bg-green-50' : 'border-gray-300 bg-white'}`}
                 >
                     <VegDot type="veg" />
@@ -51,7 +51,7 @@ const PizzaSection = () => {
                 </button>
                 <button
                     onClick={() => setFilter(filter === 'nonveg' ? 'all' : 'nonveg')}
-                    className={`flex Nunito-Sans items-center gap-1.5 px-4 py-1.5 rounded border text-sm font-normal transition-colors
+                    className={`flex Nunito-Sans cursor-pointer items-center gap-1.5 px-4 py-1.5 rounded border text-sm font-normal transition-colors
                         ${filter === 'nonveg' ? 'border-red-500 bg-red-50' : 'border-gray-300 bg-white'}`}
                 >
                     <VegDot type="nonveg" />
@@ -59,19 +59,20 @@ const PizzaSection = () => {
                 </button>
             </div>
 
-
-            <div className='flex items-center justify-between my-10'>
+            <div className={` flex items-center justify-between my-10`}>
                 <h2 className='sm:text-40 text-3xl font-semibold text-dark leading-120 Nunito-Sans '>What pizza would you like to eat?</h2>
-                <div className='flex gap-2'>
-                    <Button onClick={() => swiperRef.current?.slidePrev()} variants='third'
-                        text={<Icons icon={'prev'} />}
-                        className={'group'} />
-                    <Button
-                        onClick={() => swiperRef.current?.slideNext()}
-                        variants='third'
-                        text={<Icons icon={'next'} />}
-                        className={'group'} />
-                </div>
+                {filter === 'all' && (
+                    <div className='flex gap-2'>
+                        <Button onClick={() => swiperRef.current?.slidePrev()} variants='third'
+                            text={<Icons icon={'prev'} />}
+                            className={'group'} />
+                        <Button
+                            onClick={() => swiperRef.current?.slideNext()}
+                            variants='third'
+                            text={<Icons icon={'next'} />}
+                            className={'group'} />
+                    </div>
+                )}
             </div>
 
             <Swiper
@@ -87,7 +88,7 @@ const PizzaSection = () => {
                 }}
                 key={filter}
                 className='pb-4!'
-                
+
             >
                 {filtered.map((pizza) => (
                     <SwiperSlide key={pizza.id}>

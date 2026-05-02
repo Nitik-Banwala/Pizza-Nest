@@ -1,5 +1,5 @@
 import React from 'react'
-import { footerData } from '@/app/utils/helper'
+import { FOOTERDATA } from '@/app/utils/helper'
 import Icons from './Icons'
 
 const Footer = () => {
@@ -15,18 +15,18 @@ const Footer = () => {
                         </p>
                         <div className='flex flex-row gap-5 mt-6'>
                             <div className="group hover:bg-none border-prime-2 border duration-500 hover:bg-white cursor-pointer h-11 w-11 md:h-13 md:w-13 rounded-full bg-[linear-gradient(85.95deg,#EC6112_1.54%,#FF902E_98.46%)] flex items-center justify-center">
-                                <Icons icon={"facebook"} />
+                                <a href="">  <Icons icon={"facebook"} /></a>
                             </div>
                             <div className="group hover:bg-none border-prime-2 border duration-500 hover:bg-white cursor-pointer h-11 w-11 md:h-13 md:w-13 rounded-full bg-[linear-gradient(85.95deg,#EC6112_1.54%,#FF902E_98.46%)] flex items-center justify-center">
-                                <Icons icon={"insta"} />
+                                <a href=""> <Icons icon={"insta"} /></a>
                             </div>
                             <div className="group hover:bg-none border-prime-2 border duration-500 hover:bg-white cursor-pointer h-11 w-11 md:h-13 md:w-13 rounded-full bg-[linear-gradient(85.95deg,#EC6112_1.54%,#FF902E_98.46%)] flex items-center justify-center">
-                                <Icons icon={"linkdin"} />
+                                <a href=""> <Icons icon={"linkdin"} /></a>
                             </div>
                         </div>
                     </div>
-                   <div className='flex flex-row flex-wrap gap-8 lg:gap-20 max-w-[350.1px]'>
-                        {footerData.map((col) => (
+                    <div className='flex flex-row flex-wrap gap-8 lg:gap-20 max-w-[350.1px]'>
+                        {FOOTERDATA.map((col) => (
                             <div key={col.title} className='flex flex-col gap-3'>
                                 <h3 className='text-sm md:text-base font-semibold text-gray-900'>{col.title}</h3>
                                 <ul className='flex flex-col gap-2'>

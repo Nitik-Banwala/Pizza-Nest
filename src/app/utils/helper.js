@@ -1,4 +1,4 @@
-export const footerData = [
+export const FOOTERDATA = [
     {
         title: 'Quick Links',
         links: ['Home', 'About Us', 'Gallery', 'Testimonial', 'Contact'],
@@ -8,7 +8,7 @@ export const footerData = [
         links: ['Terms & Conditions', 'Privacy Policy'],
     },
 ]
-export const pizzas = [
+export const PIZZA = [
     {
         id: 1,
         name: 'Margherita',
@@ -47,7 +47,7 @@ export const pizzas = [
     },
 ]
 
-export const restaurants = [
+export const RESTAURANTS = [
     {
         id: 1,
         name: 'Punjabi Tadka',
@@ -88,7 +88,7 @@ export const restaurants = [
         name: 'Spice Garden',
         cuisine: 'South Indian, Chinese',
         rating: 3.9,
-        image: '/assets/images/png/restaurantstwo.png',
+        image: '/public/assets/images/png/eatone.png',
     },
 ]
 export const PIZZAS = [

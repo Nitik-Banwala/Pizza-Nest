@@ -29,7 +29,7 @@ const FamousDishes = () => {
         if (type && type !== 'all') params.set('type', type)
         if (sort) params.set('sort', sort)
 
-        router.push(`?${params.toString()}`, { scroll: false })
+        const scrollY = window.scrollY 
     }
 
     const handleTypeFilter = (value) => {
@@ -80,7 +80,7 @@ const FamousDishes = () => {
                     Famous Dishes in Hisar
                 </h2>
 
-                <div className='flex flex-wrap items-center gap-3.5 mb-10'>
+                <div className='sm:flex sm:flex-wrap grid grid-cols-2 min-[450px]:grid-cols-3 items-center gap-3.5 mb-10'>
                     {TYPE_FILTERS.map(f => (
                         <button key={f.value} onClick={() => handleTypeFilter(f.value)} className={btnClass(activeType === f.value)}>
                             {f.label}
@@ -94,7 +94,7 @@ const FamousDishes = () => {
                     ))}
                 </div>
 
-                <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4'>
+                <div className='grid grid-cols-1 min-[450px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
                     {displayItems.map(item => {
                         const inCart = cart.some(c => c.id === item.id)
 

@@ -3,7 +3,7 @@ import React, { useRef } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import 'swiper/css'
-import { restaurants } from '../utils/helper'
+import { RESTAURANTS } from '../utils/helper'
 import Button from './common/Button'
 import Icons from './common/Icons'
 
@@ -12,7 +12,7 @@ const RestaurantSection = () => {
     const swiperRef = useRef(null)
 
     return (
-        <div className='w-full px-4 py-25 max-w-293 mx-auto'>
+        <div className='w-full px-4 py-10 sm:py-25 max-w-293 mx-auto'>
             <div className='flex items-center justify-between mb-10'>
                 <h2 className=' sm:text-40 text-3xl font-semibold text-dark Nunito-Sans leading-120'>Top Restaurants in Hisar</h2>
                 <div className='flex gap-2'>
@@ -41,7 +41,7 @@ const RestaurantSection = () => {
                 }}
                 className='pb-4!'
             >
-                {restaurants.map((r) => (
+                {RESTAURANTS.map((r) => (
                     <SwiperSlide key={r.id}>
                         <div className='rounded-xl overflow-hidden border border-gray-100 shadow-sm cursor-pointer hover:shadow-md transition-shadow'>
 
